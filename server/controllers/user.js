@@ -2,7 +2,7 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const fs = require("fs");
-
+// creer l'utilisateur 
 module.exports.signup = (req, res) => {
   const { pseudo, email, password } = req.body;
   bcrypt.hash(password, 10, (err, hash) => {
@@ -27,7 +27,7 @@ module.exports.signup = (req, res) => {
     });
   });
 };
-
+// se connecter
 module.exports.signin = (req, res) => {
   const { email, password } = req.body;
   User.findOne({ email }, (err, user) => {
@@ -123,7 +123,7 @@ module.exports.getUsers = (req, res) => {
     res.status(200).json(users);
   }).sort({ createdAt: -1 });
 };
-
+//modifier l'utilateur 
 module.exports.updateUser = (req, res) => {
   const token = jwt.verify(req.cookies.token, process.env.JWT_SECRET);
   const { id } = req.params;

@@ -47,4 +47,4 @@ const UserSchema = new mongoose.Schema(
 
 UserSchema.plugin(validator, { message: "is already taken" });
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("Users", UserSchema);
