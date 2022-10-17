@@ -1,11 +1,10 @@
-.footer {
+.container{
     display: flex;
-    background-image: radial-gradient(#cc6969, #4e5166);
+    background-image: $background-color;
     text-align: center;
     flex-direction: column;
     align-items: center;
     align-content: center;
-    padding: 0 0 40px 0;
   }
   .footer__logo {
     background-repeat: no-repeat;
@@ -14,7 +13,7 @@
     font-style: italic;
     font-size: 25px;
     text-decoration: none;
-    color: black;
+    color: $color-primary;
   }
   @media screen and (max-width: 980px) {
     .footer__link {
@@ -22,7 +21,7 @@
     }
   }
   .footer__link:hover {
-    color: #fd2d01;
+    color: $color-secondary;
   }
   .footer__icon {
     margin-bottom: -8px;

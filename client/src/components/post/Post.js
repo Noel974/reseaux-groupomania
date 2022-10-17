@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../../styles/home.css";
 import PosterName from "./Post";
 import TimeAgo from "react-timeago";
 import { useNavigate } from "react-router-dom";
@@ -16,14 +15,14 @@ const Post = ({
   time,
 }) => {
   const userAuth = JSON.parse(localStorage.getItem("userAuth"));
-  let etat = "numbersOfLikes";
-  if (userAuth) {
-    etat = likers.includes(userAuth._id) ? "umbers_liked" : "numbersOfLikes";
-  }
+  //let etat = "numbersOfLikes";
+  //if (userAuth) {
+   // etat = likers.includes(userAuth._id) ? "umbers_liked" : "numbersOfLikes";
+ // }
 
-  const [isLiked, setIsLiked] = useState(likers.length);
+ // const [isLiked, setIsLiked] = useState(likers.length);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [numberLiked, setNumberLiked] = useState(etat);
+  //const [numberLiked, setNumberLiked] = useState(etat);
 
   const [profil, setProfil] = useState("");
   const [pseudo, setPseudo] = useState("");
@@ -70,7 +69,7 @@ const Post = ({
   const handelDelete = () => {
     if (userAuth._id === posterId || isAdmin) {
       alert("You gone to delete this post");
-      fetch(`http://localhost:4040/api/posts/delete/${idPost}`, {
+      fetch(`http://localhost:4040/api/post/delete/${idPost}`, {
         method: "DELETE",
         withCredentials: true,
         headers: {
@@ -88,9 +87,9 @@ const Post = ({
       alert("You are unauthorized to delete this post");
     }
   };
-  const like = (e) => {
+  /*const like = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:4040/api/posts/like/${idPost}`, {
+    fetch(`http://localhost:4040/api/post/like/${idPost}`, {
       method: "PATCH",
       body: JSON.stringify({ likerId: userAuth._id }),
       withCredentials: true,
@@ -112,7 +111,7 @@ const Post = ({
   };
   const unLike = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:4040/api/posts/unLike/${idPost}`, {
+    fetch(`http://localhost:4040/api/post/unLike/${idPost}`, {
       method: "PATCH",
       withCredentials: true,
       headers: {
@@ -131,7 +130,7 @@ const Post = ({
       .catch((error) => {
         console.log(error);
       });
-  };
+  };*/
 
   return (
     <div className="container-fluid">
@@ -147,14 +146,10 @@ const Post = ({
           </p>
           <div className="align">
             <div>
-              {" "}
-              <FontAwesomeIcon icon="fa-thumbs-up" onClick={like} />
+  
             </div>
             <div>
-              <FontAwesomeIcon icon="fa-thumbs-down" onClick={unLike} />
-            </div>
-            <div>
-              <span className={numberLiked}>{isLiked}</span>
+
             </div>
             <div>
               <Link to={`/UpdatePost/${idPost}`}>

@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/post.css";
 
 const PosterName = ({ pseudo, profil }) => {
   return (

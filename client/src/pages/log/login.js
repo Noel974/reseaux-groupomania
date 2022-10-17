@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../styles/log.css";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -32,8 +32,9 @@ const Login = () => {
   };
   return (
     <div className="col-12 col-md center-block">
-      <form onSubmit={SignIn}>
+      <form  className="row g-3" onSubmit={SignIn}>
         <h1>Login</h1>
+        <div class="p-3 mb-2 bg-warning bg-opacity-25 text-dark">
         <div className="form-outline mb-4">
           <input
             type="email"
@@ -63,6 +64,7 @@ const Login = () => {
         <button type="submit" className="btn btn-primary btn-block mb-4">
           Sign in
         </button>
+        </div>
       </form>
     </div>
   );

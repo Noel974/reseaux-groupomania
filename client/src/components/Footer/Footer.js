@@ -1,10 +1,12 @@
 import React from 'react';
+import { GoMail } from 'react-icons/go';
 import logofooter from '../../Assets/logo.svg';
-import '../../styles/footer.css'
 
-export default function Footer() {
+
+const Footer = () => {
   return (
-    <footer className="footer">
+    <footer id="sticky-footer" className="flex-shrink-0 py-4 text-white-50">
+     <div className="container text-center">
       <img
         className="footer__logo"
         src={logofooter}
@@ -13,9 +15,13 @@ export default function Footer() {
         height="150"
         width="150"
       />
-      <a className="footer__link" href='/'>
+      <a className="footer__link" href="/">
         Un problème? Contactez un admin{' '}
+        <GoMail className="footer__icon"  />
       </a>
+      </div>
     </footer>
   );
-}
+};
+
+export default Footer;

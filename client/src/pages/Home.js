@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Post from "../components/post/Post";
 import { useNavigate } from "react-router-dom";
-import "../styles/home.css"
+
 
 const Home = () => {
   let userAuth = JSON.parse(localStorage.getItem("userAuth"));
@@ -21,7 +21,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    fetch("http://localhost:4040/api/posts", {
+    fetch("http://localhost:4040/api/post", {
       method: "GET",
       withCredentials: true,
       headers: {
@@ -40,7 +40,7 @@ const Home = () => {
 
   const postIn = (e) => {
     e.preventDefault();
-    fetch("http://localhost:4040/api/posts/", {
+    fetch("http://localhost:4040/api/post/posts/", {
       method: "POST",
       body: formData,
       withCredentials: true,
@@ -63,7 +63,7 @@ const Home = () => {
           {userAuth ? (
             <div>
               <form onSubmit={postIn} encType="multipart/form-data">
-                <h1>The Wall</h1>
+                <h1>social magic world</h1>
                 <div className="form-group row">
                   <label htmlFor="message" className="col-4 col-form-label">
                     Message
@@ -107,21 +107,22 @@ const Home = () => {
                 </div>
               </form>
               {posts.map((post) => (
-                  <Post
-                    key={post._id}
-                    idPost={post._id}
-                    posterId={post.posterId}
-                    message={post.message}
-                    picture={post.picture}
-                    comments={post.comments}
-                    likers={post.likers}
-                    time={post.createdAt}
-                  />
-                ))}
+                <Post
+                  key={post._id}
+                  idPost={post._id}
+                  posterId={post.posterId}
+                  message={post.message}
+                  picture={post.picture}
+                  comments={post.comments}
+                  likers={post.likers}
+                  time={post.createdAt}
+                />
+              ))}
             </div>
           ) : (
             <div>
-              <h1>The Wall</h1>
+              <h1>social magic world</h1>
+              <h2>Groupomania</h2>
               {posts.map((post) => (
                 <Post
                   key={post._id}

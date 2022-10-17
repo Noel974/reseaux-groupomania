@@ -1,4 +1,3 @@
-import "../../styles/nav.css";
 import { Link } from "react-router-dom";
 import logo from "../../Assets/icon-left-font.png";
 
@@ -18,7 +17,7 @@ const Nav = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <Link to="/" className="navbar-brand">
-          <img src={logo} alt="logo" className="logo"/>
+          <img class Name="app-logo"src={logo} alt="logo" className="logo"/>
         </Link>
         <button
           type="button"
@@ -31,11 +30,11 @@ const Nav = () => {
         <div className="collapse navbar-collapse" id="navbarCollapse">
           {userAuth ? (
             <div className="navbar-nav">
-              <Link to="/profil" className="nav-item nav-link">
-                Profile
+              <Link to="/Profiles" className="nav-item nav-link">
+                Tous les Profiles
               </Link>
-              <Link to="/profils" className="nav-item nav-link">
-                Profiles
+              <Link to="/bio" className="nav-item nav-link">
+                bio
               </Link>
             </div>
           ) : null}

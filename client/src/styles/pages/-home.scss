@@ -1,12 +1,12 @@
 img.picture-post {
     width: 100%;
     object-fit: cover;
-    border: 5px solid #fd2d01;
+    border: 5px solid $color-primary;
     border-radius: 50px;
   }
   
   .cadre {
-    border: 2px solid #fd2d01;
+    border: 2px solid $color-primary;
     border-radius: 25px;
     margin-bottom: 15px;
     margin-top: 15px;

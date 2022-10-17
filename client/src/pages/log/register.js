@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../../styles/log.css";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
@@ -39,8 +38,9 @@ const Register = () => {
 
   return (
     <div className="col-12 col-md center-block">
-      <form onSubmit={signUp}>
+      <form className="row g-3" onSubmit={signUp}>
         <h1>Register</h1>
+        <div className="bg-danger p-2 text-dark bg-opacity-50">
         <div className="form-outline mb-4">
           <input
             type="text"
@@ -80,6 +80,7 @@ const Register = () => {
         <button type="submit" className="btn btn-primary btn-block mb-4">
           Sign up
         </button>
+        </div>
       </form>
     </div>
   );
