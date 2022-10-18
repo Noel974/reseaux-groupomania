@@ -1,28 +1,39 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import './styles/styles.scss'
-import Nav from "./components/Nav/Navbar";
-import Routes from "./routes";
-import Footer from "./components/Footer/Footer";
-import { AdminProvider } from "./utils/utils";
+import React, { useState, useEffect } from "react";
+import Routes from "./components/Routes";
+import { UidContext } from "./components/AppContext";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { getUser } from "./actions/user.actions";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
+const App = () => {
+  const [uid, setUid] = useState(null);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    const fetchToken = async () => {
+      await axios({
+        method: "get",
+        url: `${process.env.REACT_APP_API_URL}jwtid`,
+        withCredentials: true,
+      })
+        .then((res) => {
+          setUid(res.data);
+        })
+        .catch((err) => console.log(err));
+    };
 
+    fetchToken();
 
-function App() {
+    if (uid) {
+      dispatch(getUser(uid));
+    }
+  }, [uid, dispatch]);
+
   return (
-    <div className="App">
-      <AdminProvider>
-        <BrowserRouter>
-          <Nav />
-          <Routes />
-          <Footer />
-        </BrowserRouter>
-      </AdminProvider>
-    </div>
+    <UidContext.Provider value={uid}>
+      <Routes />
+    </UidContext.Provider>
   );
-}
+};
 
 export default App;

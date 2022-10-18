@@ -34,11 +34,12 @@ const userSchema = new mongoose.Schema(
 
     likes: {
       type: [String],
+      default:[],
     },
 
     isAdmin: {
       type: Boolean,
-      defaultValue: false,
+      default: false,
     },
   },
   { timestamps: true }

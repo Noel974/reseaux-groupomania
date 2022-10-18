@@ -1,143 +1,24 @@
-import React, { useEffect, useState } from "react";
-import Post from "../components/post/Post";
-import { useNavigate } from "react-router-dom";
-
+import React, { useContext } from "react";
+import { UidContext } from "../components/AppContext";
+import PostForm from "../components/Post/PostForm";
+import Thread from "../components/Thread";
+import LogPage from "./LogPage";
 
 const Home = () => {
-  let userAuth = JSON.parse(localStorage.getItem("userAuth"));
-
-  const navigate = useNavigate();
-  const [posts, setPosts] = useState([]);
-  const [imgfile, uploadimg] = useState([]);
-  const [post, setPost] = useState("");
-
-  let formData = new FormData();
-  formData.append("post_image", imgfile);
-  formData.append("message", post);
-  formData.append("posterId", userAuth ? userAuth._id : userAuth);
-
-  function imgFilehandler(e) {
-    return uploadimg(e.target.files[0]);
-  }
-
-  useEffect(() => {
-    fetch("http://localhost:4040/api/post", {
-      method: "GET",
-      withCredentials: true,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setPosts(data);
-      })
-      .catch((err) => {
-        console.log({ error: err });
-      });
-  }, []);
-
-  const postIn = (e) => {
-    e.preventDefault();
-    fetch("http://localhost:4040/api/post/posts/", {
-      method: "POST",
-      body: formData,
-      withCredentials: true,
-      credentials: "same-origin",
-    })
-      .then((data) => {
-        alert("Your post has been successfully posted.");
-        navigate(0);
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log({ error: err });
-      });
-  };
+  const uid = useContext(UidContext);
 
   return (
-    <div className="container profile-page">
-      <div className="row center-profil">
-        <div className="col-xl-6 col-lg-7 col-md-12">
-          {userAuth ? (
-            <div>
-              <form onSubmit={postIn} encType="multipart/form-data">
-                <h1>social magic world</h1>
-                <div className="form-group row">
-                  <label htmlFor="message" className="col-4 col-form-label">
-                    Message
-                  </label>
-                  <div className="col-8">
-                    <textarea
-                      id="message"
-                      name="message"
-                      cols="40"
-                      rows="5"
-                      className="form-control"
-                      defaultValue={post}
-                      onChange={(event) => setPost(event.target.value)}
-                    ></textarea>
-                  </div>
-                </div>
-                <div className="form-group row">
-                  <label htmlFor="picture" className="col-4 col-form-label">
-                    Picture
-                  </label>
-                  <div className="col-8">
-                    <input
-                      id="picture"
-                      name="post_image"
-                      type="file"
-                      className="form-control"
-                      onChange={imgFilehandler}
-                    />
-                  </div>
-                </div>
-                <div className="form-group row">
-                  <div className="offset-4 col-8">
-                    <button
-                      name="submit"
-                      type="submit"
-                      className="btn btn-primary"
-                    >
-                      Send
-                    </button>
-                  </div>
-                </div>
-              </form>
-              {posts.map((post) => (
-                <Post
-                  key={post._id}
-                  idPost={post._id}
-                  posterId={post.posterId}
-                  message={post.message}
-                  picture={post.picture}
-                  comments={post.comments}
-                  likers={post.likers}
-                  time={post.createdAt}
-                />
-              ))}
-            </div>
-          ) : (
-            <div>
-              <h1>social magic world</h1>
-              <h2>Groupomania</h2>
-              {posts.map((post) => (
-                <Post
-                  key={post._id}
-                  posterId={post.posterId}
-                  message={post.message}
-                  picture={post.picture}
-                  comments={post.comments}
-                  likers={post.likers}
-                  time={post.createdAt}
-                />
-              ))}
-            </div>
-          )}
+    <div className="home">
+      {uid ? (
+        <div className="main">
+          <div className="home-header">
+            <PostForm />
+          </div>
+          <Thread />
         </div>
-      </div>
+      ) : (
+        <LogPage />
+      )}
     </div>
   );
 };
