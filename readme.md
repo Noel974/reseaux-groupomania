@@ -1,10 +1,24 @@
-npx sequelize model:generate --name user --attributes "user_id:string,firstn
-ame:string,lastname:string,email:string,password:string,user_imageURL:string,is_Admin:boolean"
 
-npx sequelize model:generate --name post --attributes "post_id:string,post_user_id:string,post_body:string,post_date:string,post_imageURL:string"
+# A propos
 
-npx sequelize model:generate --name comment --attributes "comment_post_id:string,commentt_user_id:string,comment_id:string,comment_body:string,comment_date:string,comment_imageURL:string
-pour creer la liason entre sass et css
-sass styles.scss index.css 
-pour compiler le tous dans le css
-sass --watch styles.scss index.css 
+Le projet consiste à construire un réseau social interne pour les employés de Groupomania. Le but de cet outil est de faciliter les interactions entre collègues. Le département RH de Groupomania a imaginé plusieurs fonctionnalités pour favoriser les échanges entre collègues.
+
+# Technologies utilisées
+
+* Front-end : React, CSS
+* Back-end : MongoDB, Mongoose, Express
+
+# Installation
+
+## Server :
+
+* Télécharger __NodeJS__ si besoin
+* Créer un fichier `.env`dans le dossier __backend__ et veuillez rentrer le host, les identifiants de votre utilisateur admin et le nom de la base de données que vous souhaitez créer `SECRET_DB = "mongodb+srv://akju:groupomania@cluster0.orfzigj.mongodb.net/?retryWrites=true&w=majority"` et `RANDOM_TOKEN_SECRET =  Token`
+* Se rendre dans le dossier Backend via un terminal et installer __Node__ et toute les dépendances avec `$ npm i`
+* Lancer le serveur avec `$ nodemon`
+
+## Frontend :
+
+* Ouvrir un nouveau terminal et se rendre dans le dossier Frontend `$ cd frontend`
+* Installer __Node__ et toute les dépendances avec `$ npm i`
+* Lancer React avec la commande `$ npm start`

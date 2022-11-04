@@ -1,0 +1,126 @@
+
+.new-message-container {
+    width: 50%;
+    margin: 30px 0 10px 0;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 5px 10px gray;
+    padding: 20px;
+}
+
+.new-card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 0px 20px 0px;
+}
+
+.identity-photo {
+    max-height: 60px;
+    border-radius: 50px;
+}
+
+.name-card {
+    margin-left: 20px;
+}
+
+.name-user,
+.job-user {
+    margin: 0;
+}
+
+/* Form */
+
+.post-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+    border: 2px dotted black;
+    padding: 30px;
+}
+
+#file {
+    display: none;
+}
+
+.file-image {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.camera-icon {
+    padding: 10px;
+    font-size: 30px;
+}
+
+.success-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.success-logo {
+    font-size: 3rem;
+    color: green;
+}
+
+.post-comments-area {
+    height: 30px;
+    padding: 20px;
+    padding: 20px 0px;
+}
+
+.message {
+    overflow: hidden;
+    width: 99%;
+    height: 50px;
+}
+
+.publish-post-bouton {
+    padding: 20px 0px 0px 0px;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 30px;
+}
+
+.post-button {
+    background-color: #4E5166;
+    border-radius: 12px;
+    border: 0;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 40px;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    transition: 300ms;
+}
+
+.post-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 2px 15px grey;
+}
+
+.text-area-message {
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-device-width : 970px) {
+
+    .new-message-container {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-device-width : 650px) {
+
+    .new-message-container {
+        width: 85%;
+        
+    }
+}
+
+

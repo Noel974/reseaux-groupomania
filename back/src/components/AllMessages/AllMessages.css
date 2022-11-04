@@ -1,0 +1,224 @@
+
+.post-card {
+    width: 50%;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 5px 10px gray;
+    overflow: visible;
+}
+
+.image-cont {
+    height: 300px;
+}
+
+.card-image {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.modify-post-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modify-post-button {
+    background-color: var(--tertiary);
+    border: 0;
+    color: #eee;
+    cursor: pointer;
+    font-size: 15px;
+    height: 30px;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    transition: 300ms;
+    margin: 15px;
+}
+
+.like-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.heart-icon {
+    color: var(--primary);
+    margin-right: 5px;
+}
+
+.card-description {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 0 20px;
+}
+
+.line {
+    width: 95%;
+}
+
+/* MessageCardHeader */
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.user-job,
+.user-name {
+    padding-left: 10px;
+    margin: 0;
+}
+
+.identity-name-and-job {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.delete-icon {
+    font-size: 1.1rem;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+/* updatePostForm */
+
+.form-update-post {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px dotted var(--primary);
+    padding: 15px;
+    margin: 0px 15px 0px 15px;
+}
+
+.update-image-post-label {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.input-change-photo {
+    display: none;
+}
+
+.modify-photo-icon {
+    margin-right: 10px;
+}
+
+.success-upload-container-post {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+}
+
+.success-upload-container-post> * {
+    margin-right: 10px;
+}
+
+.update-description {
+    display: flex;
+    flex-direction: column;
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+.input-update-description {
+    margin-bottom: 15px;
+}
+
+/* COMMENTARY */
+
+.commentary-name-user {
+    margin-right: 5px;
+}
+
+.card-commentary {
+    padding: 0 20px 20px 20px;
+}
+
+.identity-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    align-items: center;
+}
+
+.identity-photo-commentary {
+    height: 50px;
+    border-radius: 50%;
+}
+
+.commentary-info-card {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-left: 10px;
+}
+
+.commentaries-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.commentez {
+    margin-right: 20px;
+}
+
+.commentary {
+    width: 100%;
+}
+
+.submit-icon {
+    font-size: 20px;
+    padding: 5px;
+}
+
+@media only screen and (max-device-width : 970px) {
+
+    .post-card {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-device-width : 650px) {
+
+    .post-card{
+        width: 100%;
+        border-radius: 0%;
+    }
+}
+
+@media only screen and (max-device-width : 500px) {
+
+    .user-job,
+    .user-name,
+    .commentary-user-name {
+        font-size: 0.9rem;
+    }
+
+    .identity-photo-commentary {
+        height: 35px;
+    }
+
+    .commentary-name-user{
+        font-size: 0.8rem;
+    }
+
+    .identity-name-and-job {
+        display: flex;
+        flex-direction: column;
+        align-items:flex-start;
+    }
+}
