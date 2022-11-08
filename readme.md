@@ -13,7 +13,8 @@ Le projet consiste à construire un réseau social interne pour les employés de
 ## Server :
 
 * Télécharger __NodeJS__ si besoin
-* Créer un fichier `.env`dans le dossier __backend__ et veuillez rentrer le host, les identifiants de votre utilisateur admin et le nom de la base de données que vous souhaitez créer `SECRET_DB = "mongodb+srv://akju:groupomania@cluster0.orfzigj.mongodb.net/?retryWrites=true&w=majority"` et `RANDOM_TOKEN_SECRET =  Token`
+* Créer un fichier `.env`dans le dossier __backend__ et veuillez rentrer le host, les identifiants de votre utilisateur admin et le nom de la base de données que vous souhaitez créer `SECRET_DB = "mongodb+srv://cluster0:groupomania@cluster0.orfzigj.mongodb.net/?retryWrites=true&w=majority"` et `RANDOM_TOKEN_SECRET =  Token`
+Veuillez inser la table users.json dans la base de donnée mongodb elle contient l'adresse de l'admin qui est admin@admin.fr mp Admin12 pour le test.
 * Se rendre dans le dossier Backend via un terminal et installer __Node__ et toute les dépendances avec `$ npm i`
 * Lancer le serveur avec `$ nodemon`
 
