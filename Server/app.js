@@ -21,7 +21,7 @@ const commentRoutes = require('./routes/comment')
 
 
 // Connection à la base de données
-mongoose.connect(process.env.SECRET_DB,
+mongoose.connect( process.env.SECRET_DB,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true

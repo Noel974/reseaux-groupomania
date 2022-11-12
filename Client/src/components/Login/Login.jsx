@@ -32,6 +32,7 @@ function Login(props) {
             })
                 .then((response) => response.json())
                 .then((res) => {
+                    console.log(res)
                     localStorage.setItem(
                         'userData',
                         JSON.stringify({
